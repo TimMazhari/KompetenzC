@@ -2,6 +2,9 @@ package Employee;
 
 public abstract class Employee {
 
+	private String name;
+	private int phoneNr;
+
 	public String getName() {
 		return name;
 	}
@@ -18,9 +21,6 @@ public abstract class Employee {
 		this.phoneNr = phoneNr;
 	}
 
-	private String name;
-	private int phoneNr;
-	
 	public abstract int getAmountEmployees();
 	
 	public abstract void print();
