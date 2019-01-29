@@ -2,27 +2,30 @@ package Employee;
 
 public abstract class Employee {
 
-	private String name;
-	private int phoneNr;
+    private String name;
+    private String departement;
+    private int phoneNr;
 
-	public String getName() {
-		return name;
-	}
+    public Employee(String name, String departement, int phoneNr) {
+        this.name = name;
+        this.departement = departement;
+        this.phoneNr = phoneNr;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {return name;}
 
-	public int getPhoneNr() {
-		return phoneNr;
-	}
+    public void setName(String name) {this.name = name;}
 
-	public void setPhoneNr(int phoneNr) {
-		this.phoneNr = phoneNr;
-	}
+    public String getDepartement() {return departement;}
 
-	public abstract int getAmountEmployees();
-	
-	public abstract void print();
+    public void setDepartement(String departement){this.departement = departement;}
+
+    public int getPhoneNr() {return phoneNr;}
+
+    public void setPhoneNr(int phoneNr) {this.phoneNr = phoneNr;}
+
+    public abstract int getAmountEmployees();
+
+    public abstract void print();
 
 }
