@@ -19,6 +19,7 @@ public class AtomicEmployee extends Employee {
 
     }
 
+
     public AtomicEmployee(String name, String departement, int phoneNr, String job) {
         super(name, departement, phoneNr);
         this.job = job;

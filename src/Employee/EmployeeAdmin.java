@@ -8,7 +8,32 @@ import java.util.ArrayList;
 
 public class EmployeeAdmin {
 
-    private final String PATH = "C:\\Users\\lucab\\eclipse-workspace\\Mitarbeiterverwaltung\\src\\EmployeeManagement\\Employees.csv";
+    private final String PATH = "C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\Employee\\employees.csv";
+
+    public ArrayList<Head> getHeads() {
+        return heads;
+    }
+
+    public void setHeads(ArrayList<Head> heads) {
+        this.heads = heads;
+    }
+
+    public ArrayList<AtomicEmployee> getAtomicEmployees() {
+        return atomicEmployees;
+    }
+
+    public void setAtomicEmployees(ArrayList<AtomicEmployee> atomicEmployees) {
+        this.atomicEmployees = atomicEmployees;
+    }
+
+    public ArrayList<Trainee> getTrainees() {
+        return trainees;
+    }
+
+    public void setTrainees(ArrayList<Trainee> trainees) {
+        this.trainees = trainees;
+    }
+
     private ArrayList<Head> heads = new ArrayList<Head>();
     private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
     private ArrayList<Trainee> trainees = new ArrayList<Trainee>();

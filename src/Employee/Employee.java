@@ -1,5 +1,7 @@
 package Employee;
 
+import java.util.ArrayList;
+
 public abstract class Employee {
 
     private String name;
@@ -11,6 +13,8 @@ public abstract class Employee {
         this.departement = departement;
         this.phoneNr = phoneNr;
     }
+
+    ArrayList<Employee> allEmployees = new ArrayList<Employee>();
 
     public String getName() {return name;}
 

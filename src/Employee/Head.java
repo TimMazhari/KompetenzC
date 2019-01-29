@@ -6,7 +6,7 @@ import java.util.List;
 public class Head extends Employee{
 
     private List<Employee> employees = new ArrayList<Employee>();
-
+	private ArrayList<Head> heads = new ArrayList<Head>();
     public void print() {
         System.out.println("Abteilungsleiter" + "\nName: " + getName() + "\nTelefon: " + getPhoneNr());
         for (Employee employee: employees) {
@@ -14,7 +14,9 @@ public class Head extends Employee{
         }
     }
 
-    public Head(String name, String departement, int phoneNr) {
+
+
+	public Head(String name, String departement, int phoneNr) {
         super(name, departement, phoneNr);
     }
 
