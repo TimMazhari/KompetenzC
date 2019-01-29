@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Kompetenz C.iml" filepath="$PROJECT_DIR$/Kompetenz C.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/Maven.iml" filepath="$PROJECT_DIR$/src/Maven.iml" />
     </modules>
   </component>
 </project>

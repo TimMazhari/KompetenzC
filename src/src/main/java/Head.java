@@ -1,5 +1,3 @@
-package Employee;
-
 import java.util.ArrayList;
 
 public class Head extends Employee{

@@ -1,5 +1,3 @@
-package Employee;
-
 public class Trainee extends AtomicEmployee{
 
     private int year;
@@ -12,8 +10,7 @@ public class Trainee extends AtomicEmployee{
     }
 
     public void print() {
-        System.out.println("        " + "TRAINEE" + "\n  Name: " + getName() + "\n      Departement: " + getDepartement() + "\n     PhoneNr: " + getPhoneNr() + "\n     Job: " + getJob() + "\n     Year:" + getYear() + "\n        Teaching Master: " + getTeachingMaster());
-    }
+        System.out.println("        " + "TRAINEE" + "\n        Name: " + getName() + "\n        Departement: " + getDepartement() + "\n        PhoneNr: " + getPhoneNr() + "\n        Job: " + getJob() + "\n        Year:" + getYear() + "\n        Teaching Master: " + getTeachingMaster());    }
 
     public int getAmountEmployees() {
         return 1;

@@ -1,5 +1,3 @@
-package Employee;
-
 import java.util.ArrayList;
 
 public class AtomicEmployee extends Employee {
@@ -18,7 +16,7 @@ public class AtomicEmployee extends Employee {
 
     @Override
     public void print() {
-        System.out.println("	"  + "EMPLOYEE" + "\n	Name: " + getName() +  "\n	PhoneNr: " + getPhoneNr() + "\n Job: " + getJob());
+        System.out.println("	"  + "EMPLOYEE" + "\n	Name: " + getName() +  "\n	PhoneNr: " + getPhoneNr() + "\n    Job: " + getJob());
         for (Trainee trainee : trainees) {
             trainee.print();
         }

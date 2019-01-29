@@ -1,5 +1,3 @@
-package Employee;
-
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +13,11 @@ public class Main {
         }
     }
 
+    /**
+     * getUserInput()
+     * getting the input for the main menu
+     * @throws Exception
+     */
     private static void getUserInput() throws Exception {
         printMenu();
         String input = sc.nextLine();
@@ -42,6 +45,10 @@ public class Main {
         }
     }
 
+    /**
+     * printMenu()
+     * prints main menu
+     */
     private static void printMenu() {
         System.out.println("---Mitarbeiterverwaltung Menü---");
         System.out.println("[1] print all employees");
@@ -51,6 +58,12 @@ public class Main {
         System.out.println("[5] save and close");
     }
 
+    /**
+     * createEmployees(doJob, doYear)
+     * creates new Head, AtomicEmployee or Trainee. doJob and doYear are there to diffirenciate between these 3.
+     * @param doJob
+     * @param doYear
+     */
     private static void createEmployees(boolean doJob, boolean doYear) {
         System.out.println("Name: ");
         String name = sc.nextLine();
@@ -58,22 +71,28 @@ public class Main {
         String departement = sc.nextLine();
         System.out.println("Phone number:");
         int phoneNr = Integer.parseInt(sc.nextLine());
+        //If the employee has the attribute job but not year, he is an atomic employee
         if (doJob && !doYear) {
             System.out.println("Job: ");
             String job = sc.nextLine();
             AtomicEmployee atomicEmployee = new AtomicEmployee(name, departement, phoneNr, job);
             ea.getAtomicEmployees().add(atomicEmployee);
-            ea.addToHead(atomicEmployee);
+            ea.addAtomicToHead(atomicEmployee);
         }
+        //if he has the attribute year, he is a trainee
         else if (doYear) {
             System.out.println("Job: ");
             String job = sc.nextLine();
             System.out.println("Year: ");
             int year = Integer.parseInt(sc.nextLine());
-            Trainee trainee = new Trainee(name, departement, phoneNr, job, year);
+            System.out.println("Teaching master: ");
+            String teachingMaster = sc.nextLine();
+            Trainee trainee = new Trainee(name, departement, phoneNr, job, year, teachingMaster);
+            ea.addTraineeToAtomicEmployee(trainee, false);
             ea.getTrainees().add(trainee);
-            ea.addToAtomicEmployee(trainee, false);
+
         }
+        //if he has none of them, he is a head.
         else {
             Head head = new Head(name, departement, phoneNr);
             ea.getHeads().add(head);
