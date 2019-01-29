@@ -20,21 +20,16 @@ public class TestEmployeeAdmin {
     @Test
     public void testGetHeads(){
         ArrayList<Head> heads = new ArrayList<Head>();
-
         Assert.assertEquals(heads, employeeAdmin.getHeads());
     }
-
     @Test
     public void testGetTrainees(){
         ArrayList<Trainee> trainees = new ArrayList<Trainee>();
-
         Assert.assertEquals(trainees, employeeAdmin.getTrainees());
     }
-
     @Test
     public void testGetAtomicEmployees(){
         ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
-
         Assert.assertEquals(atomicEmployees, employeeAdmin.getAtomicEmployees());
     }
 
@@ -49,6 +44,12 @@ public class TestEmployeeAdmin {
 
     @Test
     public void testAddTraineeToAtomicEmployee(){
+        AtomicEmployee atomicEmployee = new AtomicEmployee("Luca", "ABAP", 245, "Appli");
+        Trainee trainee = new Trainee("Tim", "ABAP", 246, "Appli", 2, atomicEmployee.getName());
+        employeeAdmin.getAtomicEmployees().add(atomicEmployee);
+        employeeAdmin.addTraineeToAtomicEmployee(trainee, true);
+        Assert.assertEquals(2, atomicEmployee.getAmountEmployees());
 
     }
 }
+

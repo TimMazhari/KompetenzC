@@ -13,6 +13,8 @@ public class TestAtomicEmployee {
     public void setUp(){
         atomicEmployee = new AtomicEmployee("Tim", "ABAP", 123, "Appli");
     }
+
+
     @Test
     public void testGetAmountEmployees(){
         int amountEmployees = atomicEmployee.getAmountEmployees();
