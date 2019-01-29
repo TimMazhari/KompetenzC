@@ -1,43 +1,31 @@
 package Employee;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Head extends Employee{
 
-    private List<Employee> employees = new ArrayList<Employee>();
-	private ArrayList<Head> heads = new ArrayList<Head>();
+    private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
+
     public void print() {
-        System.out.println("Abteilungsleiter" + "\nName: " + getName() + "\nTelefon: " + getPhoneNr());
-        for (Employee employee: employees) {
-            employee.print();
+        System.out.println("HEAD" + "\nName: " + getName() + "\nPhoneNr: " + getPhoneNr() + "\nDepartement: " + getDepartement());
+        for (AtomicEmployee atomicEmployee: atomicEmployees) {
+            atomicEmployee.print();
         }
     }
 
-
+    public int getAmountEmployees() {
+        int self = 1;
+        for (AtomicEmployee atomicEmployee : atomicEmployees) {
+            self += atomicEmployee.getAmountEmployees();
+        }
+        return self;
+    }
 
 	public Head(String name, String departement, int phoneNr) {
         super(name, departement, phoneNr);
     }
 
-    public void add(Employee employee) {
-        employees.add(employee);
+    public void add(AtomicEmployee atomicEmployee) {
+        atomicEmployees.add(atomicEmployee);
     }
-
-    public void remove(Employee employee) {
-        employees.remove(employee);
-    }
-
-    public Employee getEmployee(int index) {
-        return employees.get(index);
-    }
-
-    public int getAmountEmployees() {
-        int self = 1;
-        for (Employee employee : employees) {
-            self += employee.getAmountEmployees();
-        }
-        return self;
-    }
-
 }

@@ -1,39 +1,39 @@
 package Employee;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AtomicEmployee extends Employee {
 
     private String job;
-    private List<Employee> trainees = new ArrayList<Employee>();
+    private ArrayList<Trainee> trainees = new ArrayList<Trainee>();
 
     @Override
     public int getAmountEmployees() {
-        return 1;
+        int self = 1;
+        for (Trainee trainee : trainees) {
+            self += trainee.getAmountEmployees();
+        }
+        return self;
     }
 
     @Override
     public void print() {
-        System.out.println("	"  + "Angestellter" + "\n	Name : " + getName() +  "\n	Telefon: " + getPhoneNr());
-
+        System.out.println("	"  + "EMPLOYEE" + "\n	Name: " + getName() +  "\n	PhoneNr: " + getPhoneNr() + "\n Job: " + getJob());
+        for (Trainee trainee : trainees) {
+            trainee.print();
+        }
     }
-
 
     public AtomicEmployee(String name, String departement, int phoneNr, String job) {
         super(name, departement, phoneNr);
         this.job = job;
     }
 
-    public void add(AtomicEmployee trainee) {
+    public void add(Trainee trainee) {
         trainees.add(trainee);
     }
 
     public String getJob() {
         return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
     }
 }

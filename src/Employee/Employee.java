@@ -16,17 +16,17 @@ public abstract class Employee {
 
     ArrayList<Employee> allEmployees = new ArrayList<Employee>();
 
-    public String getName() {return name;}
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) {this.name = name;}
+    public String getDepartement() {
+        return departement;
+    }
 
-    public String getDepartement() {return departement;}
-
-    public void setDepartement(String departement){this.departement = departement;}
-
-    public int getPhoneNr() {return phoneNr;}
-
-    public void setPhoneNr(int phoneNr) {this.phoneNr = phoneNr;}
+    public int getPhoneNr() {
+        return phoneNr;
+    }
 
     public abstract int getAmountEmployees();
 

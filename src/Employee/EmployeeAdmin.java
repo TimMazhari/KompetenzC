@@ -5,38 +5,63 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class EmployeeAdmin {
 
-    private final String PATH = "C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\Employee\\employees.csv";
+    private final String PATH = "C:\\Users\\lucab\\IdeaProjects\\KompetenzC\\src\\Employee\\employees.csv";
+
+    private ArrayList<Head> heads = new ArrayList<Head>();
+    private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
+    private ArrayList<Trainee> trainees = new ArrayList<Trainee>();
 
     public ArrayList<Head> getHeads() {
         return heads;
-    }
-
-    public void setHeads(ArrayList<Head> heads) {
-        this.heads = heads;
     }
 
     public ArrayList<AtomicEmployee> getAtomicEmployees() {
         return atomicEmployees;
     }
 
-    public void setAtomicEmployees(ArrayList<AtomicEmployee> atomicEmployees) {
-        this.atomicEmployees = atomicEmployees;
-    }
-
     public ArrayList<Trainee> getTrainees() {
         return trainees;
     }
 
-    public void setTrainees(ArrayList<Trainee> trainees) {
-        this.trainees = trainees;
+    public void printAllEmployees() {
+        for (Head head : heads) {
+            head.print();
+        }
     }
 
-    private ArrayList<Head> heads = new ArrayList<Head>();
-    private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
-    private ArrayList<Trainee> trainees = new ArrayList<Trainee>();
+    public void addToHead(AtomicEmployee atomicEmployee) {
+        for (Head head : heads) {
+            if (head.getDepartement().equals(atomicEmployee.getDepartement())) {
+                head.add(atomicEmployee);
+            }
+        }
+    }
+
+    public void addToAtomicEmployee(Trainee trainee, boolean onStart) {
+        Scanner sc = new Scanner(System.in);
+        if(onStart) {
+            for (AtomicEmployee atomicEmployee : atomicEmployees) {
+                if (atomicEmployee.getName().equals(trainee.getTeachingMaster())) {
+                    atomicEmployee.add(trainee);
+                }
+            }
+        }
+        else {
+            System.out.println("Which is his teaching master?");
+            for (AtomicEmployee atomicEmployee : atomicEmployees) {
+                if (atomicEmployee.getDepartement().equals(trainee.getDepartement())) {
+                    System.out.println(atomicEmployee.getName());
+                }
+            }
+            String teachingMaster = sc.nextLine();
+            trainee.setTeachingMaster(teachingMaster);
+            addToAtomicEmployee(trainee, false);
+        }
+    }
 
     //read Employees.csv, create the objects and add them to the lists
     public void load() throws IOException {
@@ -50,10 +75,14 @@ public class EmployeeAdmin {
                 heads.add(new Head(parts[1], parts[2], Integer.parseInt(parts[3])));
             }
             else if (parts[0].equals("AtomicEmployee")) {
-                atomicEmployees.add(new AtomicEmployee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]));
+                AtomicEmployee atomicEmployee = new AtomicEmployee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]);
+                atomicEmployees.add(atomicEmployee);
+                addToHead(atomicEmployee);
             }
             else {
-                trainees.add(new Trainee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4], Integer.parseInt(parts[5])));
+                Trainee trainee = new Trainee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4], Integer.parseInt(parts[5]), parts[6]);
+                trainees.add(trainee);
+                addToAtomicEmployee(trainee, true);
             }
         }
         br.close();
