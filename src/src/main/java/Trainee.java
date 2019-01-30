@@ -1,3 +1,5 @@
+import javax.annotation.PostConstruct;
+
 public class Trainee extends AtomicEmployee{
 
     private int year;
@@ -8,10 +10,10 @@ public class Trainee extends AtomicEmployee{
         this.year = year;
         this.teachingMaster = teachingMaster;
     }
-
+    @Override
     public void print() {
         System.out.println("        " + "TRAINEE" + "\n        Name: " + getName() + "\n        Departement: " + getDepartement() + "\n        PhoneNr: " + getPhoneNr() + "\n        Job: " + getJob() + "\n        Year:" + getYear() + "\n        Teaching Master: " + getTeachingMaster());    }
-
+    @Override
     public int getAmountEmployees() {
         return 1;
     }

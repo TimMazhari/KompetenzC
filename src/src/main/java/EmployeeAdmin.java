@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class EmployeeAdmin {
 
-    private final String PATH = "C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\Employee\\employees.csv";
+    private final String PATH ="C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\src\\main\\java\\employees.csv";
 
     private ArrayList<Head> heads = new ArrayList<Head>();
     private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();

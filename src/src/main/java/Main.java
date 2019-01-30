@@ -80,7 +80,7 @@ public class Main {
             ea.addAtomicToHead(atomicEmployee);
         }
         //if he has the attribute year, he is a trainee
-        else if (doYear) {
+        else if (doJob && doYear) {
             System.out.println("Job: ");
             String job = sc.nextLine();
             System.out.println("Year: ");
@@ -93,7 +93,7 @@ public class Main {
 
         }
         //if he has none of them, he is a head.
-        else {
+        else if(!doJob && !doYear) {
             Head head = new Head(name, departement, phoneNr);
             ea.getHeads().add(head);
         }
