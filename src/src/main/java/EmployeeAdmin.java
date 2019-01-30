@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class EmployeeAdmin {
 
-    private final String PATH ="C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\src\\main\\java\\employees.csv";
+    private final String PATH ="C:\\Users\\lucab\\IdeaProjects\\KompetenzC\\src\\src\\main\\java\\employees.csv";
 
     private ArrayList<Head> heads = new ArrayList<Head>();
     private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
@@ -26,9 +26,12 @@ public class EmployeeAdmin {
     }
 
     public void printAllEmployees() {
+        int amountEmployee = 0;
         for (Head head : heads) {
             head.print();
+            amountEmployee += head.getAmountEmployees();
         }
+        System.out.println("\nThere are a total of " + amountEmployee + " employees\n\n");
     }
 
     public void addAtomicToHead(AtomicEmployee atomicEmployee) {
@@ -57,7 +60,7 @@ public class EmployeeAdmin {
             }
             String teachingMaster = sc.nextLine();
             trainee.setTeachingMaster(teachingMaster);
-            addTraineeToAtomicEmployee(trainee, false);
+            addTraineeToAtomicEmployee(trainee, true);
         }
     }
 
@@ -105,7 +108,8 @@ public class EmployeeAdmin {
                     ";" + trainee.getDepartement() +
                     ";" + trainee.getPhoneNr() +
                     ";" + trainee.getJob() +
-                    ";" + trainee.getYear() + "\r\n");
+                    ";" + trainee.getYear() +
+                    ";" + trainee.getTeachingMaster() + "\r\n");
         }
         pw.close();
     }

@@ -85,9 +85,7 @@ public class Main {
             String job = sc.nextLine();
             System.out.println("Year: ");
             int year = Integer.parseInt(sc.nextLine());
-            System.out.println("Teaching master: ");
-            String teachingMaster = sc.nextLine();
-            Trainee trainee = new Trainee(name, departement, phoneNr, job, year, teachingMaster);
+            Trainee trainee = new Trainee(name, departement, phoneNr, job, year, "");
             ea.addTraineeToAtomicEmployee(trainee, false);
             ea.getTrainees().add(trainee);
 

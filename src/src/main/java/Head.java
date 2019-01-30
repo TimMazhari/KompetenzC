@@ -6,7 +6,7 @@ public class Head extends Employee{
 
     @Override
     public void print() {
-        System.out.println("HEAD" + "\nName: " + getName() + "\nPhoneNr: " + getPhoneNr() + "\nDepartement: " + getDepartement());
+        System.out.println("--HEAD--" + "\nName: " + getName() + "\nPhoneNr: " + getPhoneNr() + "\nDepartement: " + getDepartement());
         for (AtomicEmployee atomicEmployee: atomicEmployees) {
             atomicEmployee.print();
         }
