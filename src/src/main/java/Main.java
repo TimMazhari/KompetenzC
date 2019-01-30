@@ -1,3 +1,11 @@
+/**
+ * Main class
+ *
+ * manages user input and biggest part of System output
+ * @author Luca Schweizer and Tim Mazhari
+ * @version 1.0
+ */
+
 import java.util.Scanner;
 
 public class Main {

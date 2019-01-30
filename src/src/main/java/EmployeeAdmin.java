@@ -1,3 +1,11 @@
+/**
+ * EmployeeAdmin class
+ *
+ * manages the logic between the user and the objects
+ * @author Luca Schweizer and Tim Mazhari
+ * @version 1.0
+ */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,8 +15,10 @@ import java.util.Scanner;
 
 public class EmployeeAdmin {
 
-    private final String PATH ="C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\src\\main\\java\\employees.csv";
+    //path of the employees.csv file
+    private final String PATH ="C:\\Users\\lucab\\IdeaProjects\\KompetenzC\\src\\src\\main\\java\\employees.csv";
 
+    //lists for all kind of employees
     private ArrayList<Head> heads = new ArrayList<Head>();
     private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
     private ArrayList<Trainee> trainees = new ArrayList<Trainee>();
@@ -25,6 +35,10 @@ public class EmployeeAdmin {
         return trainees;
     }
 
+    /**
+     * calls print() from all heads
+     * prints amount of employees
+     */
     public void printAllEmployees() {
         int amountEmployee = 0;
         for (Head head : heads) {
@@ -34,6 +48,11 @@ public class EmployeeAdmin {
         System.out.println("\nThere are a total of " + amountEmployee + " employees\n\n");
     }
 
+    /**
+     * Overloaded method
+     * adds a new atomicEmployee to one of the heads
+     * @param atomicEmployee
+     */
     public void addWorker(AtomicEmployee atomicEmployee) {
         for (Head head : heads) {
             if (head.getDepartement().equals(atomicEmployee.getDepartement())) {
@@ -41,7 +60,13 @@ public class EmployeeAdmin {
             }
         }
     }
-    //Overloaded.
+
+    /**
+     * Overloaded method
+     * adds a new trainee to one of the atomic employees
+     * @param trainee
+     * @param onStart
+     */
     public void addWorker(Trainee trainee, boolean onStart) {
         Scanner sc = new Scanner(System.in);
         if(onStart) {
@@ -64,7 +89,10 @@ public class EmployeeAdmin {
         }
     }
 
-    //read Employees.csv, create the objects and add them to the lists
+    /**
+     * reads file and creates objects from its data
+     * @throws IOException
+     */
     public void load() throws IOException {
         FileReader fr = new FileReader(PATH);
         BufferedReader br = new BufferedReader(fr);
@@ -90,6 +118,10 @@ public class EmployeeAdmin {
         br.close();
     }
 
+    /**
+     * overwrites the file with the new data
+     * @throws IOException
+     */
     public void save() throws IOException {
         PrintWriter pw = new PrintWriter(PATH);
         for (Head head : heads) {
