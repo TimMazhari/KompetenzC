@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class EmployeeAdmin {
 
-    private final String PATH ="C:\\Users\\lucab\\IdeaProjects\\KompetenzC\\src\\src\\main\\java\\employees.csv";
+    private final String PATH ="C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\src\\main\\java\\employees.csv";
 
     private ArrayList<Head> heads = new ArrayList<Head>();
     private ArrayList<AtomicEmployee> atomicEmployees = new ArrayList<AtomicEmployee>();
@@ -34,15 +34,15 @@ public class EmployeeAdmin {
         System.out.println("\nThere are a total of " + amountEmployee + " employees\n\n");
     }
 
-    public void addAtomicToHead(AtomicEmployee atomicEmployee) {
+    public void addWorker(AtomicEmployee atomicEmployee) {
         for (Head head : heads) {
             if (head.getDepartement().equals(atomicEmployee.getDepartement())) {
                 head.add(atomicEmployee);
             }
         }
     }
-
-    public void addTraineeToAtomicEmployee(Trainee trainee, boolean onStart) {
+    //Overloaded.
+    public void addWorker(Trainee trainee, boolean onStart) {
         Scanner sc = new Scanner(System.in);
         if(onStart) {
             for (AtomicEmployee atomicEmployee : atomicEmployees) {
@@ -60,7 +60,7 @@ public class EmployeeAdmin {
             }
             String teachingMaster = sc.nextLine();
             trainee.setTeachingMaster(teachingMaster);
-            addTraineeToAtomicEmployee(trainee, true);
+            addWorker(trainee, true);
         }
     }
 
@@ -78,13 +78,13 @@ public class EmployeeAdmin {
             else if (parts[0].equals("AtomicEmployee")) {
                 AtomicEmployee atomicEmployee = new AtomicEmployee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]);
                 atomicEmployees.add(atomicEmployee);
-                addAtomicToHead(atomicEmployee);
+                addWorker(atomicEmployee);
             }
             else {
 
                 Trainee trainee = new Trainee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4], Integer.parseInt(parts[5]), parts[6]);
                 trainees.add(trainee);
-                addTraineeToAtomicEmployee(trainee, true);
+                addWorker(trainee, true);
             }
         }
         br.close();

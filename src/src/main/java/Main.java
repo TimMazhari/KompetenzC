@@ -77,7 +77,7 @@ public class Main {
             String job = sc.nextLine();
             AtomicEmployee atomicEmployee = new AtomicEmployee(name, departement, phoneNr, job);
             ea.getAtomicEmployees().add(atomicEmployee);
-            ea.addAtomicToHead(atomicEmployee);
+            ea.addWorker(atomicEmployee);
         }
         //if he has the attribute year, he is a trainee
         else if (doJob && doYear) {
@@ -86,7 +86,7 @@ public class Main {
             System.out.println("Year: ");
             int year = Integer.parseInt(sc.nextLine());
             Trainee trainee = new Trainee(name, departement, phoneNr, job, year, "");
-            ea.addTraineeToAtomicEmployee(trainee, false);
+            ea.addWorker(trainee, false);
             ea.getTrainees().add(trainee);
 
         }

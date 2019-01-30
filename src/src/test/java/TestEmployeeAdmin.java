@@ -38,7 +38,7 @@ public class TestEmployeeAdmin {
         Head head = new Head("Luca", "ABAP", 123);
         AtomicEmployee atomicEmployee = new AtomicEmployee("Tim", "ABAP", 1234,"Appli");
         employeeAdmin.getHeads().add(head);
-        employeeAdmin.addAtomicToHead(atomicEmployee);
+        employeeAdmin.addWorker(atomicEmployee);
         Assert.assertEquals(2, head.getAmountEmployees());
     }
 
@@ -47,7 +47,7 @@ public class TestEmployeeAdmin {
         AtomicEmployee atomicEmployee = new AtomicEmployee("Luca", "ABAP", 245, "Appli");
         Trainee trainee = new Trainee("Tim", "ABAP", 246, "Appli", 2, atomicEmployee.getName());
         employeeAdmin.getAtomicEmployees().add(atomicEmployee);
-        employeeAdmin.addTraineeToAtomicEmployee(trainee, true);
+        employeeAdmin.addWorker(trainee, true);
         Assert.assertEquals(2, atomicEmployee.getAmountEmployees());
 
     }

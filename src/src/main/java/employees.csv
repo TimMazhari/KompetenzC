@@ -1,9 +1,9 @@
 Head;Christoph Balzer;R&D;284
-AtomicEmployee;Andre Wahlen;R&D;928;Software Engineer
-Trainee;Luca;R&D;625;Application Engineer;2;Andre Wahlen
-Trainee;Tim;R&D;192;Application Engineer;2;Andre Wahlen
 Head;José Schwendener;Einkauf;928
+AtomicEmployee;Andre Wahlen;R&D;928;Software Engineer
 AtomicEmployee;Yves Gojak;Einkauf;245;Supporter
 AtomicEmployee;Udo Jürgens;Einkauf;264;Assisstent
 AtomicEmployee;Marc Zink;Einkauf;235;Event-Manager
+Trainee;Luca;R&D;625;Application Engineer;2;Andre Wahlen
+Trainee;Tim;R&D;192;Application Engineer;2;Andre Wahlen
 Trainee;Serena Giglio;Einkauf;221;Kauffrau;2;Yves Gojak
