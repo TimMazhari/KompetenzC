@@ -100,19 +100,20 @@ public class EmployeeAdmin {
         String line = "";
         while ((line = br.readLine()) != null) {
             String[] parts = line.split(";");
-            if (parts[0].equals("Head")) {
-                heads.add(new Head(parts[1], parts[2], Integer.parseInt(parts[3])));
-            }
-            else if (parts[0].equals("AtomicEmployee")) {
-                AtomicEmployee atomicEmployee = new AtomicEmployee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]);
-                atomicEmployees.add(atomicEmployee);
-                addWorker(atomicEmployee);
-            }
-            else {
-
-                Trainee trainee = new Trainee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4], Integer.parseInt(parts[5]), parts[6]);
-                trainees.add(trainee);
-                addWorker(trainee, true);
+            switch (parts[0]) {
+                case "Head":
+                    heads.add(new Head(parts[1], parts[2], Integer.parseInt(parts[3])));
+                    break;
+                case "AtomicEmployee":
+                    AtomicEmployee atomicEmployee = new AtomicEmployee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4]);
+                    atomicEmployees.add(atomicEmployee);
+                    addWorker(atomicEmployee);
+                    break;
+                default:
+                    Trainee trainee = new Trainee(parts[1], parts[2], Integer.parseInt(parts[3]), parts[4], Integer.parseInt(parts[5]), parts[6]);
+                    trainees.add(trainee);
+                    addWorker(trainee, true);
+                    break;
             }
         }
         br.close();

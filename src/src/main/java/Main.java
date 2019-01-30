@@ -96,7 +96,6 @@ public class Main {
             Trainee trainee = new Trainee(name, departement, phoneNr, job, year, "");
             ea.addWorker(trainee, false);
             ea.getTrainees().add(trainee);
-
         }
         //if he has none of them, he is a head.
         else if(!doJob && !doYear) {
