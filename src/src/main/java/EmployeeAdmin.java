@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class EmployeeAdmin {
 
     //path of the employees.csv file
-    private final String PATH ="C:\\Users\\lucab\\IdeaProjects\\KompetenzC\\src\\src\\main\\java\\employees.csv";
+    private final String PATH ="C:\\Users\\11tmazhari\\IdeaProjects\\Kompetenz C\\src\\src\\main\\java\\employees.csv";
 
     //lists for all kind of employees
     private ArrayList<Head> heads = new ArrayList<Head>();

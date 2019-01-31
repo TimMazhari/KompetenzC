@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -51,5 +52,26 @@ public class TestEmployeeAdmin {
         Assert.assertEquals(2, atomicEmployee.getAmountEmployees());
 
     }
+
+
+    @Test(expected = AssertionError.class)
+    public void negativeTestAddAtomicToHead(){
+        Head head = new Head("Luca", "ABAP", 123);
+        AtomicEmployee atomicEmployee = new AtomicEmployee("Tim", "ABAP", 1234,"Appli");
+        employeeAdmin.getHeads().add(head);
+        employeeAdmin.addWorker(atomicEmployee);
+        Assert.assertEquals(1, head.getAmountEmployees());
+    }
+
+    @Test(expected = AssertionError.class)
+    public void negativeTestAddTraineeToAtomicEmployee(){
+        AtomicEmployee atomicEmployee = new AtomicEmployee("Luca", "ABAP", 245, "Appli");
+        Trainee trainee = new Trainee("Tim", "ABAP", 246, "Appli", 2, atomicEmployee.getName());
+        employeeAdmin.getAtomicEmployees().add(atomicEmployee);
+        employeeAdmin.addWorker(trainee, true);
+        Assert.assertEquals(1, atomicEmployee.getAmountEmployees());
+
+    }
+
 }
 

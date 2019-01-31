@@ -23,4 +23,16 @@ public class TestHead {
         Assert.assertEquals(1, head.getAmountEmployees());
     }
 
+    @Test(expected = AssertionError.class)
+    public void negativeTestAdd (){
+        AtomicEmployee atomicEmployee = new AtomicEmployee("Tim", "ABAP", 145, "Appli");
+        head.add(atomicEmployee);
+        Assert.assertEquals(1, head.getAmountEmployees());
+    }
+
+    @Test(expected = AssertionError.class)
+    public void negativeTestGetAmountEmployees(){
+        Assert.assertEquals(2, head.getAmountEmployees());
+    }
+
 }

@@ -35,4 +35,28 @@ public class TestTrainee {
         Assert.assertEquals(1, trainee.getAmountEmployees());
     }
 
+
+
+    @Test(expected = AssertionError.class)
+    public void negativeTestGetAmountEmployees(){
+        Assert.assertEquals(2, trainee.getAmountEmployees());
+    }
+
+    @Test(expected = AssertionError.class)
+    public void negativeTestGetTeachingMaster()
+    {
+        Assert.assertEquals("Tim", trainee.getTeachingMaster());
+    }
+
+    @Test(expected = AssertionError.class)
+    public void negativeTestSetTeachingMaster(){
+        trainee.setTeachingMaster("Michael");
+        Assert.assertEquals("Luca", trainee.getTeachingMaster());
+    }
+    @Test(expected = AssertionError.class)
+    public void negativeTestGetYear(){
+        Assert.assertEquals(2, trainee.getYear());
+    }
+
+
 }
